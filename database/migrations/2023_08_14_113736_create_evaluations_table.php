@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('year_id');
             $table->foreignId('subject_id');
-            $table->smallInteger('total_mark')->default(0);
-            $table->smallInteger('total_student')->default(0);
-            $table->smallInteger('result')->default(0);
+            $table->float('total_mark')->default(0);
+            $table->integer('total_student')->default(0);
+            $table->float('result')->default(0);
             $table->timestamps();
         });
     }

@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-12">
                 <h4>Evaluate Teachers</h4>
-                <h5>Academic Year: {{ $evaluations[0]->year->year }}</h5>
-                <h5>Semester: {{ $evaluations[0]->year->semester + 1 }}</h5>
+                <h5>Academic Year: {{ $currentYear->year }}</h5>
+                <h5>Semester: {{ $currentYear->semester + 1 }}</h5>
 
                 <table class="table table-hover evaluationTable">
                     <thead>
@@ -32,6 +32,7 @@
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>

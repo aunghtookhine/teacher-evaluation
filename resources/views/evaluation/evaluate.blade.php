@@ -16,7 +16,8 @@
 @section('content')
     <div class="container">
         <h3>Evaluation Questionnaire for Academic</h3>
-        <form action="{{ route('evaluation.store') }}" method="post">
+        <form action="{{ route('evaluation.update', $evaluation->id) }}" method="post">
+            @method('put')
             @csrf
             <table class="table table-striped">
                 <thead>
@@ -28,23 +29,24 @@
                     <th>5</th>
                 </thead>
                 <tbody>
+
                     @foreach ($questions as $question)
                         <tr>
                             <td>{{ $question->name }}</td>
                             <td>
-                                <input type="radio" name="{{ $question->id }}" value="1">
+                                <input type="radio" required name="questionId{{ $question->id }}" value="1">
                             </td>
                             <td>
-                                <input type="radio" name="{{ $question->id }}" value="2">
+                                <input type="radio" name="questionId{{ $question->id }}" value="2">
                             </td>
                             <td>
-                                <input type="radio" name="{{ $question->id }}" value="3">
+                                <input type="radio" name="questionId{{ $question->id }}" value="3">
                             </td>
                             <td>
-                                <input type="radio" name="{{ $question->id }}" value="4">
+                                <input type="radio" name="questionId{{ $question->id }}" value="4">
                             </td>
                             <td>
-                                <input type="radio" name="{{ $question->id }}" value="5">
+                                <input type="radio" name="questionId{{ $question->id }}" value="5">
                             </td>
                         </tr>
                     @endforeach

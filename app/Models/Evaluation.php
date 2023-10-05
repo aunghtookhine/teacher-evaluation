@@ -9,7 +9,7 @@ class Evaluation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["year_id", "subject_id"];
+    protected $fillable = ["year_id", "subject_id", "total_mark", "total_student", "result"];
 
     public function year()
     {

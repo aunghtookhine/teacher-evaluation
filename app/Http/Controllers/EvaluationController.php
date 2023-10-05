@@ -32,11 +32,13 @@ class EvaluationController extends Controller
             )
         );
 
-        $currentYearId = Year::where('status', 'Started')->first()->id;
+        $currentYear = Year::where('status', 'Started')->first();
 
-        $evaluations = Evaluation::where('year_id', $currentYearId)->whereIn('subject_id', $subjects)->get();
+        $evaluations = Evaluation::where('year_id', $currentYear->id)->whereIn('subject_id', $subjects)->get();
 
-        return view('evaluation.index', compact("evaluations"));
+        // return $evaluations;
+
+        return view('evaluation.index', ['evaluations' => $evaluations, 'currentYear' => $currentYear]);
     }
 
     /**
@@ -52,7 +54,6 @@ class EvaluationController extends Controller
      */
     public function store(StoreEvaluationRequest $request)
     {
-        return $request;
     }
 
     /**
@@ -76,7 +77,39 @@ class EvaluationController extends Controller
      */
     public function update(UpdateEvaluationRequest $request, Evaluation $evaluation)
     {
-        //
+        $totalScoreGivenByStudents
+            = $request->questionId1 + $request->questionId2 + $request->questionId3
+            + $request->questionId4 + $request->questionId5 + $request->questionId6
+            + $request->questionId7 + $request->questionId8 + $request->questionId9
+            + $request->questionId10;
+
+        $averageTotalScore = $totalScoreGivenByStudents / 10;
+
+        $totalScore = $evaluation->total_mark + $averageTotalScore;
+        $totalStudent = $evaluation->total_student + 1;
+        $actualResult = $totalScore / $totalStudent;
+
+        $evaluation->update([
+            'total_mark' => $totalScore,
+            'total_student' => $totalStudent,
+            'result' => $actualResult,
+        ]);
+
+        $studentId = Student::where('email', Auth::user()->email)->first()->id;
+        $subjects = StudentSubject::where('student_id', $studentId)->first()->subjects;
+        $subjectsArray = array_map('intval', explode(",", $subjects));
+        $newSubjectArray = [];
+        foreach ($subjectsArray as $subject) {
+            if ($subject !== $evaluation->subject_id) {
+                array_push($newSubjectArray, $subject);
+            }
+        }
+
+        StudentSubject::where('student_id', $studentId)->first()->update([
+            'subjects' => implode(",", $newSubjectArray)
+        ]);
+
+        return redirect()->route('evaluation.index')->with('message', 'Evaluated Successfully');
     }
 
     /**

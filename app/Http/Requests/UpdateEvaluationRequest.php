@@ -11,7 +11,7 @@ class UpdateEvaluationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class UpdateEvaluationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "questionId1" => "Required",
+            "questionId2" => "Required",
+            "questionId3" => "Required",
+            "questionId4" => "Required",
+            "questionId5" => "Required",
+            "questionId6" => "Required",
+            "questionId7" => "Required",
+            "questionId8" => "Required",
+            "questionId9" => "Required",
+            "questionId10" => "Required",
         ];
     }
 }
