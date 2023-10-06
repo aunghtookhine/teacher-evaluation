@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('position', ['dean', 'lecturer'])->default('lecturer');;
+            $table->enum('position', ['dean', 'lecturer'])->default('lecturer');
+            $table->boolean('isArchived')->unsigned()->nullable()->default(false);
             $table->timestamps();
         });
     }

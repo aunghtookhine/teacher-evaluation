@@ -16,16 +16,10 @@ class TeacherController extends Controller
     public function index()
     {
         $this->authorize('admin-only', Teacher::class);
-        $teachers = Teacher::when(request()->has('keyword'), function ($query) {
+        $teachers = Teacher::where('isArchived', false)->when(request()->has('keyword'), function ($query) {
             $keyword = request()->keyword;
-            $query->where("title", "like", "%" . $keyword . "%");
-            // $query->orWhere("description", "like", "%" . $keyword . "%");
-        })
-            ->when(request()->has('title'), function ($query) {
-                $sortType = request()->title ?? 'asc';
-                $query->orderBy("title", $sortType);
-            })
-            ->paginate(8)->withQueryString();
+            $query->where("name", "like", "%" . $keyword . "%");
+        })->paginate(8)->withQueryString();
 
         return view('teacher.index', compact('teachers'));
     }
@@ -54,7 +48,7 @@ class TeacherController extends Controller
 
         $role = $request->role;
 
-        if($request->position === 'dean'){
+        if ($request->position === 'dean') {
             $role = 'admin';
         }
 
@@ -65,7 +59,7 @@ class TeacherController extends Controller
         $user->role = $role;
         $user->save();
 
-        return redirect()->route('teacher.index');
+        return redirect()->route('teacher.index')->with('message', 'You have been successfully created.');
     }
 
     /**
@@ -102,7 +96,7 @@ class TeacherController extends Controller
             'position' => $request->position
         ]);
 
-        return redirect()->route('teacher.index')->with('message', 'Updated Successfully');
+        return redirect()->route('teacher.index')->with('message', 'You have successfully updated.');
     }
 
     /**
@@ -112,7 +106,9 @@ class TeacherController extends Controller
     {
         $this->authorize('admin-only', Teacher::class);
         User::all()->where('email', $teacher->email)->first()->delete();
-        $teacher->delete();
-        return redirect()->back();
+        $teacher->update([
+            'isArchived' => true
+        ]);
+        return redirect()->route('teacher.index')->with('message', 'You have successfully deleted.');
     }
 }

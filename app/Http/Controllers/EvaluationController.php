@@ -10,6 +10,7 @@ use App\Http\Requests\StoreEvaluationRequest;
 use App\Http\Requests\UpdateEvaluationRequest;
 use App\Models\Question;
 use App\Models\StudentSubject;
+use App\Models\YearStudentSubject;
 use Faker\Core\Number;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,20 +24,17 @@ class EvaluationController extends Controller
     public function index()
     {
         $this->authorize('student-only', Evaluation::class);
-        $studentId = Student::where('name', Auth::user()->name)->first()->id;
-        $subjects = array_map(
-            'intval',
-            explode(
-                ",",
-                StudentSubject::where('student_id', $studentId)->first()->subjects
-            )
-        );
-
         $currentYear = Year::where('status', 'Started')->first();
+        $studentId = Student::where('email', Auth::user()->email)->first()->id;
+        $subjects = YearStudentSubject::where('year_id', $currentYear->id)->where('student_id', $studentId)->get();
+        $subjectIds = [];
+        foreach ($subjects as $subject) {
+            array_push($subjectIds, $subject->subject_id);
+        }
+        // return $subjectIds
 
-        $evaluations = Evaluation::where('year_id', $currentYear->id)->whereIn('subject_id', $subjects)->get();
 
-        // return $evaluations;
+        $evaluations = Evaluation::where('year_id', $currentYear->id)->whereIn('subject_id', $subjectIds)->get();
 
         return view('evaluation.index', ['evaluations' => $evaluations, 'currentYear' => $currentYear]);
     }
@@ -96,20 +94,9 @@ class EvaluationController extends Controller
         ]);
 
         $studentId = Student::where('email', Auth::user()->email)->first()->id;
-        $subjects = StudentSubject::where('student_id', $studentId)->first()->subjects;
-        $subjectsArray = array_map('intval', explode(",", $subjects));
-        $newSubjectArray = [];
-        foreach ($subjectsArray as $subject) {
-            if ($subject !== $evaluation->subject_id) {
-                array_push($newSubjectArray, $subject);
-            }
-        }
+        YearStudentSubject::where('year_id', $evaluation->year_id)->where('student_id', $studentId)->where('subject_id', $evaluation->subject_id)->delete();
 
-        StudentSubject::where('student_id', $studentId)->first()->update([
-            'subjects' => implode(",", $newSubjectArray)
-        ]);
-
-        return redirect()->route('evaluation.index')->with('message', 'Evaluated Successfully');
+        return redirect()->route('evaluation.index')->with('message', 'You have been successfully evaluated.');
     }
 
     /**
@@ -125,16 +112,4 @@ class EvaluationController extends Controller
         $questions = Question::all();
         return view('evaluation.evaluate', ['evaluation' => $evaluation, 'questions' => $questions]);
     }
-
-    // public function evaluate(){
-
-    //     $year = Year::where('status', 'Started')->first();
-
-    //     $email = Auth::user()->email;
-    //     $student = Student::where('email', $email)->first();
-
-    //     $subjects = Subject::where('grade_id', $student->grade_id)->get();
-
-    //     return view('evaluation.evaluate', ['year'=>$year, 'subjects' => $subjects]);
-    // }
 }

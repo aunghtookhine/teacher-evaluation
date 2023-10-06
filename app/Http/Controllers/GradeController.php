@@ -14,12 +14,7 @@ class GradeController extends Controller
     public function index()
     {
         $this->authorize('admin-only', Grade::class);
-        $grades = Grade::when(request()->has('keyword'), function ($query) {
-            $keyword = request()->keyword;
-            $query->where("name", "like", "%" . $keyword . "%");
-            // $query->orWhere("description", "like", "%" . $keyword . "%");
-        })
-            ->paginate(8)->withQueryString();
+        $grades = Grade::where('isArchived', false)->paginate(8)->withQueryString();
 
         return view('grade.index', compact('grades'));
     }
@@ -43,7 +38,7 @@ class GradeController extends Controller
             "name" => $request->name
         ]);
 
-        return redirect()->route('grade.index')->with('message', $request->name . ' is created successfully.');
+        return redirect()->route('grade.index')->with('message', 'You have successfully created.');
     }
 
     /**
@@ -76,7 +71,9 @@ class GradeController extends Controller
     public function destroy(grade $grade)
     {
         $this->authorize('admin-only', Grade::class);
-        $grade->delete();
-        return redirect()->back();
+        $grade->update([
+            'isArchived' => true
+        ]);
+        return redirect()->route('grade.index')->with('message', 'You have successfully deleted.');
     }
 }

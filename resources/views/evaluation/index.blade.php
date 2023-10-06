@@ -4,9 +4,28 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4>Evaluate Teachers</h4>
-                <h5>Academic Year: {{ $currentYear->year }}</h5>
-                <h5>Semester: {{ $currentYear->semester + 1 }}</h5>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>Evaluate Teachers</h4>
+                        <h5>Academic Year: {{ $currentYear->year }}</h5>
+                        <h5>Semester: {{ $currentYear->semester + 1 }}</h5>
+                    </div>
+                    <div>
+                        @if (session('message'))
+                            <div class="toast show align-items-center text-white bg-black border-0" role="alert"
+                                aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body text-white">
+                                        {{ session('message') }}
+                                    </div>
+                                    <button type="button" class=" btn-close btn-close-white me-2 m-auto"
+                                        data-bs-dismiss="toast" aria-label="Close">
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
 
                 <table class="table table-hover evaluationTable">
                     <thead>

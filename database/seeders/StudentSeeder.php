@@ -21,79 +21,156 @@ class StudentSeeder extends Seeder
                 "name" => "Aung Htoo Khine",
                 "email" => 'ahk@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 1,
+                "roll_number" => '5IT-1',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Htet Nge Nge Ko',
                 "email" => 'hnnk@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 2,
+                "roll_number" => '5IT-2',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Nway Nway Aung',
                 "email" => 'nna@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 3,
+                "roll_number" => '5IT-3',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Kyaw Zin Hein',
                 "email" => 'kzh@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 4,
+                "roll_number" => '5IT-4',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Zaw Lwin Htoo',
                 "email" => 'zlh@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 5,
+                "roll_number" => '5IT-5',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Hein Htet Arkar Mg',
                 "email" => 'hham@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 6,
+                "roll_number" => '5IT-6',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Aung Pyae Phyo',
                 "email" => 'app@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 7,
+                "roll_number" => '5IT-7',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Ye Yint Myat',
                 "email" => 'yym@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 8,
+                "roll_number" => '5IT-8',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Zin Min Thu',
                 "email" => 'zmt@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 9,
+                "roll_number" => '5IT-9',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Myat Thu Kha',
                 "email" => 'mtk@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 10,
+                "roll_number" => '5IT-10',
                 "grade_id" => 5
             ],
             (object) [
                 "name" => 'Aung Aung Myat Kyaw',
                 "email" => 'aamk@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => 11,
+                "roll_number" => '5IT-11',
                 "grade_id" => 5
-            ]
+            ],
+            (object) [
+                "name" => 'Thike Htaw Aung',
+                "email" => 'tha@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-1',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Kaung Khant Kyaw',
+                "email" => 'kkk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-2',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Kaung Sett Min Thwin',
+                "email" => 'ksmt@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-3',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Mya Wuttyi Sett',
+                "email" => 'mws@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-1',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Moe Thandar Aye',
+                "email" => 'mta@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-2',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Aye Pyae Pyae Moe',
+                "email" => 'appm@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-3',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Ei Kay Khine',
+                "email" => 'ekk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '3IT-1',
+                "grade_id" => 3
+            ],
+            (object) [
+                "name" => 'Han Nwe Htutt',
+                "email" => 'hnh@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '3IT-2',
+                "grade_id" => 3
+            ],
+            (object) [
+                "name" => 'Ye Zarni Ko',
+                "email" => 'yzk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-1',
+                "grade_id" => 4
+            ],
+            (object) [
+                "name" => 'Moe Zaw',
+                "email" => 'mz@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-2',
+                "grade_id" => 4
+            ],
+            (object) [
+                "name" => 'Eaint Hmue Khin',
+                "email" => 'ehk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-3',
+                "grade_id" => 4
+            ],
         );
 
         foreach ($students as $student) {
@@ -113,13 +190,16 @@ class StudentSeeder extends Seeder
             ]);
         };
 
-        $ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+        // $ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+        // $subjectIds = [1, 2, 3, 4, 5, 6];
 
-        foreach ($ids as $id) {
-            StudentSubject::factory()->create([
-                "student_id" => $id,
-                "subjects" => "1,2,3,4,5,6"
-            ]);
-        }
+        // foreach ($ids as $id) {
+        //     foreach ($subjectIds as $subjectId) {
+        //         StudentSubject::factory()->create([
+        //             "student_id" => $id,
+        //             "subject_id" => $subjectId,
+        //         ]);
+        //     }
+        // }
     }
 }

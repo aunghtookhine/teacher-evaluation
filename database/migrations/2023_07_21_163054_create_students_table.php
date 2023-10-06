@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('roll_number')->unique();
+            $table->string('roll_number')->unique()->nullable();
             $table->foreignId('grade_id');
-            $table->enum('is_evaluated', [0,1])->default(0);
+            $table->boolean('isArchived')->unsigned()->nullable()->default(false);
             $table->timestamps();
         });
     }

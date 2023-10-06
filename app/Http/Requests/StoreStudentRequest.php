@@ -26,7 +26,7 @@ class StoreStudentRequest extends FormRequest
             "email" => "required|email|unique:students,email",
             "password" => "required|min:8",
             "password_confirmation" => "same:password",
-            "roll_number" => "required"
+            "roll_number" => "required|unique:students,roll_number"
         ];
     }
 }

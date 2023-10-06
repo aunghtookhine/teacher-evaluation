@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('grade_id');
             $table->foreignId('teacher_id')->nullable();
+            $table->boolean('isArchived')->unsigned()->nullable()->default(false);
             $table->timestamps();
         });
     }

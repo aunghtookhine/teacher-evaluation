@@ -1,13 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (request()->has('keyword'))
-        <p>Search result by '{{ request()->keyword }}'</p>
-    @endif
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            @if (request()->has('keyword'))
+                <p>Search result by '{{ request()->keyword }}'</p>
+            @endif
+        </div>
+        <div>
 
-    @if (session('message'))
-        <div class="alert alert-dark">{{ session('message') }}</div>
-    @endif
+            @if (session('message'))
+                <div class="toast show align-items-center text-white bg-black border-0" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body text-white">
+                            {{ session('message') }}
+                        </div>
+                        <button type="button" class=" btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close">
+                        </button>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
 
     <h4>Teacher List</h4>
 

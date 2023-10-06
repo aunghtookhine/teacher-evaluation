@@ -1,16 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (session('message'))
-        <div class="alert alert-dark">{{ session('message') }}</div>
-    @endif
-
     <h3>Academic Year List</h3>
     <hr>
 
-    <div class="row my-3">
+    <div class="my-3 d-flex justify-content-between align-items-center">
         <div class="col-md-3">
             <a href="{{ route('year.create') }}" class="btn btn-outline-dark">Create</a>
+        </div>
+        <div>
+            @if (session('message'))
+                <div class="toast show align-items-center text-white bg-black border-0" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body text-white">
+                            {{ session('message') }}
+                        </div>
+                        <button type="button" class=" btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close">
+                        </button>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
     <table class="table">
@@ -37,12 +48,12 @@
                             <a href="{{ route('year.edit', $year->id) }}" class="btn btn-sm btn-outline-dark">
                                 <i class=" bi bi-pencil"></i>
                             </a>
-                            <button form="yearDeleForm{{ $year->id }}" class=" btn btn-sm btn-outline-dark">
+                            {{-- <button form="yearDeleForm{{ $year->id }}" class=" btn btn-sm btn-outline-dark">
                                 <i class=" bi bi-trash"></i>
                             </button>
                             <a href="{{ route('year.edit', $year->id) }}" class="btn btn-sm btn-outline-dark">
                                 <i class=" bi bi-pencil"></i>
-                            </a>
+                            </a> --}}
                         </div>
                         <form id="yearDeleForm{{ $year->id }}" class="d-inline-block"
                             action="{{ route('year.destroy', $year->id) }}" method="post">

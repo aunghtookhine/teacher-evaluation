@@ -32,7 +32,7 @@
                     <div class="d-flex">
                         <div class="mb-3 col-5 me-3">
                             <label class="form-label">Roll Number</label>
-                            <input type="number" class=" form-control @error('roll_number') is-invalid @enderror"
+                            <input type="text" class=" form-control @error('roll_number') is-invalid @enderror"
                                 name="roll_number" value="{{ old('roll_number', $student->roll_number) }}">
                             @error('roll_number')
                                 <div class="text-danger invalid-feedback">{{ $message }}</div>
@@ -43,13 +43,14 @@
                             <select class="form-select" aria-label="Default select example" name="grade_id">
                                 @foreach (App\Models\Grade::all() as $grade)
                                     <option value="{{ $grade->id }}"
-                                        {{ $student->grade_id === $grade->id ? 'selected' : '' }}>{{ $grade->name }}</option>
+                                        {{ $student->grade_id === $grade->id ? 'selected' : '' }}>{{ $grade->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary">Update student</button>
+                    <button class="btn btn-dark">Update</button>
                 </form>
             </div>
         </div>

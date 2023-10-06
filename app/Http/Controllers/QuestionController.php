@@ -43,7 +43,7 @@ class QuestionController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect()->route('question.index')->with('message', 'Question successfully created.');
+        return redirect()->route('question.index')->with('message', 'You have been successfully created.');
     }
 
     /**
@@ -72,7 +72,7 @@ class QuestionController extends Controller
         $question->update([
             'name' => $request->name
         ]);
-        return redirect()->route('question.index')->with('message', 'Question successfully updated');
+        return redirect()->route('question.index')->with('message', 'You have been successfully updated.');
     }
 
     /**
@@ -82,6 +82,6 @@ class QuestionController extends Controller
     {
         $this->authorize('admin-only', Question::class);
         $question->delete();
-        return redirect()->back();
+        return redirect()->route('question.index')->with('message', 'You have been successfully deleted.');
     }
 }

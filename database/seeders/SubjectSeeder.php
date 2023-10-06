@@ -15,6 +15,102 @@ class SubjectSeeder extends Seeder
     {
         $subjects = array(
             (object) [
+                "code" => "IT-10001",
+                "name" => "1st Year 1",
+                "grade_id" => 1,
+                "teacher_id" => 1
+            ],
+            (object) [
+                "code" => "IT-20001",
+                "name" => "2nd Year 1",
+                "grade_id" => 2,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-20002",
+                "name" => "2nd Year 2",
+                "grade_id" => 2,
+                "teacher_id" => 3
+            ],
+            (object) [
+                "code" => "IT-20003",
+                "name" => "2nd Year 3",
+                "grade_id" => 2,
+                "teacher_id" => 4
+            ],
+            (object) [
+                "code" => "IT-20004",
+                "name" => "2nd Year 4",
+                "grade_id" => 2,
+                "teacher_id" => 1
+            ],
+            (object) [
+                "code" => "IT-20005",
+                "name" => "2nd Year 5",
+                "grade_id" => 2,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-30001",
+                "name" => "3rd Year 1",
+                "grade_id" => 3,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-30002",
+                "name" => "3rd Year 2",
+                "grade_id" => 3,
+                "teacher_id" => 3
+            ],
+            (object) [
+                "code" => "IT-30003",
+                "name" => "3rd Year 3",
+                "grade_id" => 3,
+                "teacher_id" => 4
+            ],
+            (object) [
+                "code" => "IT-30004",
+                "name" => "3rd Year 4",
+                "grade_id" => 3,
+                "teacher_id" => 1
+            ],
+            (object) [
+                "code" => "IT-30005",
+                "name" => "3rd Year 5",
+                "grade_id" => 3,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-40001",
+                "name" => "4th Year 1",
+                "grade_id" => 4,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-40002",
+                "name" => "4th Year 2",
+                "grade_id" => 4,
+                "teacher_id" => 3
+            ],
+            (object) [
+                "code" => "IT-40003",
+                "name" => "4th Year 3",
+                "grade_id" => 4,
+                "teacher_id" => 4
+            ],
+            (object) [
+                "code" => "IT-40004",
+                "name" => "4th Year 4",
+                "grade_id" => 4,
+                "teacher_id" => 1
+            ],
+            (object) [
+                "code" => "IT-40005",
+                "name" => "4th Year 5",
+                "grade_id" => 4,
+                "teacher_id" => 2
+            ],
+            (object) [
                 "code" => "IT-52037",
                 "name" => "Digital Image Processing",
                 "grade_id" => 5,
@@ -49,7 +145,7 @@ class SubjectSeeder extends Seeder
                 "name" => "Integrated Design Project",
                 "grade_id" => 5,
                 "teacher_id" => 6
-            ]
+            ],
         );
 
         foreach ($subjects as $subject) {

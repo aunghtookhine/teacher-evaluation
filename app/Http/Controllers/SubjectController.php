@@ -14,16 +14,10 @@ class SubjectController extends Controller
     public function index()
     {
         $this->authorize('admin-only', Subject::class);
-        $subjects = Subject::when(request()->has('keyword'), function ($query) {
+        $subjects = Subject::where('isArchived', false)->when(request()->has('keyword'), function ($query) {
             $keyword = request()->keyword;
-            $query->where("title", "like", "%" . $keyword . "%");
-            // $query->orWhere("description", "like", "%" . $keyword . "%");
-        })
-            ->when(request()->has('title'), function ($query) {
-                $sortType = request()->title ?? 'asc';
-                $query->orderBy("title", $sortType);
-            })
-            ->paginate(8)->withQueryString();
+            $query->where("name", "like", "%" . $keyword . "%");
+        })->paginate(8)->withQueryString();
 
         return view('subject.index', compact('subjects'));
     }
@@ -50,7 +44,7 @@ class SubjectController extends Controller
             'teacher_id' => $request->teacher_id,
         ]);
 
-        return redirect()->route('subject.index');
+        return redirect()->route('subject.index')->with('message', 'You have successfully created.');
     }
 
     /**
@@ -79,11 +73,9 @@ class SubjectController extends Controller
         $subject->update([
             'code' => $request->code,
             'name' => $request->name,
-            'grade_id' => $request->grade_id,
             'teacher_id' => $request->teacher_id
         ]);
-        return redirect()->route('subject.index')->with('message', 'Updated Successfully');
-
+        return redirect()->route('subject.index')->with('message', 'You have successfully updated.');
     }
 
     /**
@@ -92,7 +84,9 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         $this->authorize('admin-only', Subject::class);
-        $subject->delete();
-        return redirect()->back()->with('message', 'Deleted Successfully');
+        $subject->update([
+            'isArchived' => true
+        ]);
+        return redirect()->route('subject.index')->with('message', 'You have successfully deleted.');
     }
 }
