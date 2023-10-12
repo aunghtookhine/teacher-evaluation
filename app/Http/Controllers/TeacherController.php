@@ -6,6 +6,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use App\Http\Requests\StoreTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
@@ -39,6 +40,11 @@ class TeacherController extends Controller
     public function store(StoreTeacherRequest $request)
     {
         $this->authorize('admin-only', Teacher::class);
+
+        $this->validate($request, [
+            "email" => 'required|unique:users,email,'
+        ]);
+
         Teacher::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -85,6 +91,10 @@ class TeacherController extends Controller
     public function update(UpdateTeacherRequest $request, Teacher $teacher)
     {
         $this->authorize('admin-only', Teacher::class);
+        $userId = User::where('email', $teacher->email)->first()->id;
+        $this->validate($request, [
+            "email" => 'required|unique:users,email,' . $userId
+        ]);
         User::all()->where('email', $teacher->email)->first()->update([
             'name' => $request->name,
             'email' => $request->email

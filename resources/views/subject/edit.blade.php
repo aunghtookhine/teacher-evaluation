@@ -34,7 +34,7 @@
                             <select class="form-select" aria-label="Default select example" name="teacher_id">
                                 <option value="{{ null }}" {{ null === $subject->teacher_id ? 'selected' : '' }}>
                                     Default</option>
-                                @foreach (App\Models\Teacher::all() as $teacher)
+                                @foreach (App\Models\Teacher::where('isArchived', false)->get() as $teacher)
                                     <option value="{{ $teacher->id }}"
                                         {{ $teacher->id === $subject->teacher_id ? 'selected' : '' }}>{{ $teacher->name }}
                                     </option>

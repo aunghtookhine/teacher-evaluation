@@ -23,7 +23,7 @@ class UpdateTeacherRequest extends FormRequest
     {
         return [
             "name" => "required|min:3",
-            "email" => "required|email"
+            "email" => "required|email|unique:teachers,email," . $this->teacher->id
         ];
     }
 }

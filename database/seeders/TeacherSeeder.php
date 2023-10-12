@@ -65,7 +65,7 @@ class TeacherSeeder extends Seeder
                 "position" => "lecturer"
             ],
             (object) [
-                "name" => 'Daw Hein Thet Aung',
+                "name" => 'U Hein Thet Aung',
                 "email" => 'hta@gmail.com',
                 "password" => 'asdffdsa',
                 "position" => "lecturer"

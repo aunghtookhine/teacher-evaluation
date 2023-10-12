@@ -112,7 +112,7 @@
         </tbody>
     </table>
 
-    <div>
+    <div class="example">
         {{ $teachers->onEachSide(1)->links() }}
     </div>
 @endsection

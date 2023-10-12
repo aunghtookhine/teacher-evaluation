@@ -5,7 +5,9 @@ namespace App\Http\Requests;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UpdateStudentRequest extends FormRequest
 {
@@ -24,11 +26,10 @@ class UpdateStudentRequest extends FormRequest
      */
     public function rules(): array
     {
-        // $studentId = Student::where('email', Auth::user()->email)->first()->id;
         return [
             "name" => "required|min:3",
-            "email" => "required",
-            "roll_number" => "required",
+            "email" => 'required|email|unique:students,email,' . $this->student->id,
+            "roll_number" => "required|unique:students,roll_number," . $this->student->id
         ];
     }
 }

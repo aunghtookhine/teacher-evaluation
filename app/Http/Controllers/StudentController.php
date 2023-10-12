@@ -47,6 +47,10 @@ class StudentController extends Controller
     {
         $this->authorize('admin-only', Student::class);
 
+        $this->validate($request, [
+            "email" => 'required|unique:users,email,'
+        ]);
+
         Student::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -63,9 +67,10 @@ class StudentController extends Controller
         ]);
 
         $studentId = Student::where('email', $request->email)->first()->id;
-        $isExisted = YearStudentSubject::where('student_id', 26)->first();
+        $isExisted = YearStudentSubject::where('student_id', $studentId)->first();
         $subjects = Subject::where('grade_id', $request->grade_id)->get();
-        $years = Year::all();
+        $years = Year::where('status', "!=", "Started")->get();
+
         if (!$isExisted) {
             foreach ($years as $year) {
                 foreach ($subjects as $subject) {
@@ -104,6 +109,10 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $this->authorize('admin-only', Student::class);
+        $userId = User::where('email', $student->email)->first()->id;
+        $this->validate($request, [
+            "email" => 'required|unique:users,email,' . $userId
+        ]);
         User::all()->where('email', $student->email)->first()->update([
             'name' => $request->name,
             'email' => $request->email

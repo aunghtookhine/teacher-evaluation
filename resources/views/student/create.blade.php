@@ -51,7 +51,7 @@
                         <div class="mb-3 col-5 me-3">
                             <label class="form-label">Roll No</label>
                             <input type="text" class="form-control @error('roll_number') is-invalid @enderror"
-                                name="roll_number" placeholder="Example 1IT-1">
+                                name="roll_number" placeholder="Example 1IT-1" value="{{ old('roll_number') }}">
                             @error('roll_number')
                                 <div class="text-danger invalid-feedback">{{ $message }}</div>
                             @enderror
