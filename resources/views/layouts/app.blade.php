@@ -8,8 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>TPES | Teachers' Performance Evaluation System</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/logo.png') }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -18,13 +19,13 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<body style="background-color: #183655">
     <div id="app">
         @include('layouts.nav')
 
         @auth
             <main class="py-4">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-3">
                             @include('layouts.left-sidebar')
@@ -33,6 +34,7 @@
                             @yield('content')
                         </div>
                     </div>
+                </div>
             </main>
         @endauth
         @guest

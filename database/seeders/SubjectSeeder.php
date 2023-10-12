@@ -15,40 +15,40 @@ class SubjectSeeder extends Seeder
     {
         $subjects = array(
             (object) [
-                "code" => "IT-10001",
-                "name" => "1st Year 1",
+                "code" => "IT-12013",
+                "name" => "Introduction to Computer Systems",
                 "grade_id" => 1,
+                "teacher_id" => 3
+            ],
+            (object) [
+                "code" => "IT-21011",
+                "name" => "Basic Electricity & Electronics",
+                "grade_id" => 2,
+                "teacher_id" => 6
+            ],
+            (object) [
+                "code" => "IT-21012",
+                "name" => "Data Communication",
+                "grade_id" => 2,
                 "teacher_id" => 1
             ],
             (object) [
-                "code" => "IT-20001",
-                "name" => "2nd Year 1",
+                "code" => "IT-21015",
+                "name" => "Programming Language in C++",
                 "grade_id" => 2,
                 "teacher_id" => 2
             ],
             (object) [
-                "code" => "IT-20002",
-                "name" => "2nd Year 2",
-                "grade_id" => 2,
-                "teacher_id" => 3
-            ],
-            (object) [
-                "code" => "IT-20003",
-                "name" => "2nd Year 3",
+                "code" => "IT-21021",
+                "name" => "Digital Logic Design",
                 "grade_id" => 2,
                 "teacher_id" => 4
             ],
             (object) [
-                "code" => "IT-20004",
-                "name" => "2nd Year 4",
+                "code" => "IT-21025",
+                "name" => "Web Development Technologies I",
                 "grade_id" => 2,
-                "teacher_id" => 1
-            ],
-            (object) [
-                "code" => "IT-20005",
-                "name" => "2nd Year 5",
-                "grade_id" => 2,
-                "teacher_id" => 2
+                "teacher_id" => 5
             ],
             (object) [
                 "code" => "IT-30001",
@@ -81,40 +81,40 @@ class SubjectSeeder extends Seeder
                 "teacher_id" => 2
             ],
             (object) [
-                "code" => "IT-40001",
-                "name" => "4th Year 1",
+                "code" => "IT-42017",
+                "name" => "Modern Control Systems",
                 "grade_id" => 4,
-                "teacher_id" => 2
+                "teacher_id" => 5
             ],
             (object) [
-                "code" => "IT-40002",
-                "name" => "4th Year 2",
+                "code" => "IT-42023",
+                "name" => "Computer Architecture and Organization",
                 "grade_id" => 4,
                 "teacher_id" => 3
             ],
             (object) [
-                "code" => "IT-40003",
-                "name" => "4th Year 3",
+                "code" => "IT-42026",
+                "name" => "Advanced Data Management Techniques",
+                "grade_id" => 4,
+                "teacher_id" => 2
+            ],
+            (object) [
+                "code" => "IT-42032",
+                "name" => "Advanced Computer Networks",
                 "grade_id" => 4,
                 "teacher_id" => 4
             ],
             (object) [
-                "code" => "IT-40004",
-                "name" => "4th Year 4",
+                "code" => "IT-42033",
+                "name" => "Operating Systems",
                 "grade_id" => 4,
                 "teacher_id" => 1
-            ],
-            (object) [
-                "code" => "IT-40005",
-                "name" => "4th Year 5",
-                "grade_id" => 4,
-                "teacher_id" => 2
             ],
             (object) [
                 "code" => "IT-52037",
                 "name" => "Digital Image Processing",
                 "grade_id" => 5,
-                "teacher_id" => 1
+                "teacher_id" => 3
             ],
             (object) [
                 "code" => "IT-52065",
@@ -126,25 +126,25 @@ class SubjectSeeder extends Seeder
                 "code" => "IT-52047",
                 "name" => "Artificial Intelligence",
                 "grade_id" => 5,
-                "teacher_id" => 3
+                "teacher_id" => 4
             ],
             (object) [
                 "code" => "IT-52043",
                 "name" => "Embedded Systems",
                 "grade_id" => 5,
-                "teacher_id" => 4
+                "teacher_id" => 6
             ],
             (object) [
                 "code" => "IT-52042",
                 "name" => "Cryptography and Network Security",
                 "grade_id" => 5,
-                "teacher_id" => 5
+                "teacher_id" => 8
             ],
             (object) [
                 "code" => "IT-51058",
                 "name" => "Integrated Design Project",
                 "grade_id" => 5,
-                "teacher_id" => 6
+                "teacher_id" => 1
             ],
         );
 

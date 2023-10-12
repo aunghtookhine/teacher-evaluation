@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4>Update Academic Year</h4>
-    <hr>
+    <h4 class="text-white">Update Academic Year</h4>
+    <hr class="text-white">
     <form action="{{ route('year.update', $year->id) }}" method="post">
         @csrf
         @method('put')
@@ -29,6 +29,6 @@
                 <option value="Closed" {{ $year->status === 'Closed' ? 'selected' : '' }}>Closed</option>
             </select>
         </div>
-        <button class="btn btn-dark">Update</button>
+        <button class="btn btn-color">Update</button>
     </form>
 @endsection

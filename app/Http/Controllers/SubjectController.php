@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
+use App\Models\Evaluation;
+use App\Models\Year;
+use App\Models\YearStudentSubject;
 
 class SubjectController extends Controller
 {
@@ -16,7 +19,8 @@ class SubjectController extends Controller
         $this->authorize('admin-only', Subject::class);
         $subjects = Subject::where('isArchived', false)->when(request()->has('keyword'), function ($query) {
             $keyword = request()->keyword;
-            $query->where("name", "like", "%" . $keyword . "%");
+            $query->where("name", "like", "%" . $keyword . "%")
+                ->orWhere("code", "like", "%" . $keyword . "%");
         })->paginate(8)->withQueryString();
 
         return view('subject.index', compact('subjects'));
@@ -75,6 +79,7 @@ class SubjectController extends Controller
             'name' => $request->name,
             'teacher_id' => $request->teacher_id
         ]);
+
         return redirect()->route('subject.index')->with('message', 'You have successfully updated.');
     }
 
@@ -84,9 +89,18 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         $this->authorize('admin-only', Subject::class);
+        $validYears = Year::where('status', 'pending')->get();
+        $validYearsId = [];
+        foreach ($validYears as $validYear) {
+            array_push($validYearsId, $validYear->id);
+        }
+        Evaluation::whereIn('year_id', $validYearsId)->where('subject_id', $subject->id)->delete();
+        YearStudentSubject::whereIn('year_id', $validYearsId)->where('subject_id', $subject->id)->delete();
+
         $subject->update([
             'isArchived' => true
         ]);
+
         return redirect()->route('subject.index')->with('message', 'You have successfully deleted.');
     }
 }

@@ -18,7 +18,7 @@ class TeacherController extends Controller
         $this->authorize('admin-only', Teacher::class);
         $teachers = Teacher::where('isArchived', false)->when(request()->has('keyword'), function ($query) {
             $keyword = request()->keyword;
-            $query->where("name", "like", "%" . $keyword . "%");
+            $query->where("name", "like", "%" . $keyword . "%")->orWhere('position', "like", "%" . $keyword . "%");
         })->paginate(8)->withQueryString();
 
         return view('teacher.index', compact('teachers'));
@@ -59,7 +59,7 @@ class TeacherController extends Controller
         $user->role = $role;
         $user->save();
 
-        return redirect()->route('teacher.index')->with('message', 'You have been successfully created.');
+        return redirect()->route('teacher.index')->with('message', 'You have successfully created.');
     }
 
     /**

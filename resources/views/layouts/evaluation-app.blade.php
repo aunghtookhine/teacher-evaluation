@@ -18,11 +18,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<body style="background-color: #183655">
     <div id="app">
         @include('layouts.nav')
         <main class="py-4">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4">
                         @yield('information')
@@ -31,6 +31,7 @@
                         @yield('content')
                     </div>
                 </div>
+            </div>
         </main>
     </div>
 </body>

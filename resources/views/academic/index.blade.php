@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>Academic Year List</h3>
-    <hr>
+    <h3 class="text-white">Academic Year List</h3>
+    <hr class="text-white">
 
     <div class="my-3 d-flex justify-content-between align-items-center">
         <div class="col-md-3">
-            <a href="{{ route('year.create') }}" class="btn btn-outline-dark">Create</a>
+            <a href="{{ route('year.create') }}" class="btn btn-color">Create</a>
         </div>
         <div>
             @if (session('message'))
-                <div class="toast show align-items-center text-white bg-black border-0" role="alert" aria-live="assertive"
+                <div class="toast show align-items-center text-black bg-white border-0" role="alert" aria-live="assertive"
                     aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body text-white">
+                        <div class="toast-body text-black">
                             {{ session('message') }}
                         </div>
-                        <button type="button" class=" btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        <button type="button" class=" btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast"
                             aria-label="Close">
                         </button>
                     </div>
@@ -45,13 +45,15 @@
                     <td>{{ $year->status }}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="{{ route('year.edit', $year->id) }}" class="btn btn-sm btn-outline-dark">
+                            <a href="{{ route('year.edit', $year->id) }}"
+                                class="btn btn-sm table-btn-outline-color {
+                                ">
                                 <i class=" bi bi-pencil"></i>
                             </a>
-                            {{-- <button form="yearDeleForm{{ $year->id }}" class=" btn btn-sm btn-outline-dark">
+                            {{-- <button form="yearDeleForm{{ $year->id }}" class=" btn btn-sm btn-outline-color">
                                 <i class=" bi bi-trash"></i>
                             </button>
-                            <a href="{{ route('year.edit', $year->id) }}" class="btn btn-sm btn-outline-dark">
+                            <a href="{{ route('year.edit', $year->id) }}" class="btn btn-sm btn-outline-color">
                                 <i class=" bi bi-pencil"></i>
                             </a> --}}
                         </div>
@@ -82,7 +84,7 @@
                 <tr>
                     <td colspan="7" class=" text-center p-3">
                         <p>There is no academic year.</p>
-                        <a class="btn btn-sm btn-dark" href="{{ route('year.create') }}">Create
+                        <a class="btn btn-sm btn-color" href="{{ route('year.create') }}">Create
                             year</a>
                     </td>
 

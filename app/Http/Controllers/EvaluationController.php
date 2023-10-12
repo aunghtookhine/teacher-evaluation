@@ -25,16 +25,16 @@ class EvaluationController extends Controller
     {
         $this->authorize('student-only', Evaluation::class);
         $currentYear = Year::where('status', 'Started')->first();
-        $studentId = Student::where('email', Auth::user()->email)->first()->id;
-        $subjects = YearStudentSubject::where('year_id', $currentYear->id)->where('student_id', $studentId)->get();
-        $subjectIds = [];
-        foreach ($subjects as $subject) {
-            array_push($subjectIds, $subject->subject_id);
+        $evaluations = [];
+        if ($currentYear) {
+            $studentId = Student::where('email', Auth::user()->email)->first()->id;
+            $subjects = YearStudentSubject::where('year_id', $currentYear->id)->where('student_id', $studentId)->get();
+            $subjectIds = [];
+            foreach ($subjects as $subject) {
+                array_push($subjectIds, $subject->subject_id);
+            }
+            $evaluations = Evaluation::where('year_id', $currentYear->id)->whereIn('subject_id', $subjectIds)->get();
         }
-        // return $subjectIds
-
-
-        $evaluations = Evaluation::where('year_id', $currentYear->id)->whereIn('subject_id', $subjectIds)->get();
 
         return view('evaluation.index', ['evaluations' => $evaluations, 'currentYear' => $currentYear]);
     }
@@ -96,7 +96,7 @@ class EvaluationController extends Controller
         $studentId = Student::where('email', Auth::user()->email)->first()->id;
         YearStudentSubject::where('year_id', $evaluation->year_id)->where('student_id', $studentId)->where('subject_id', $evaluation->subject_id)->delete();
 
-        return redirect()->route('evaluation.index')->with('message', 'You have been successfully evaluated.');
+        return redirect()->route('evaluation.index')->with('message', 'You have successfully evaluated.');
     }
 
     /**

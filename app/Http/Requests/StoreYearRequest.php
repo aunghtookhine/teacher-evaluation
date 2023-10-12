@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreYearRequest extends FormRequest
 {
@@ -22,7 +23,19 @@ class StoreYearRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'year' => 'required|min:9'
+            'year' => 'required|min:9|unique:years,year,null,null,semester,' . $this->input('semester')
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'year.unique' => 'The academic year you want to create is existed.',
         ];
     }
 }

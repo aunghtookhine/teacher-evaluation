@@ -121,7 +121,7 @@ class YearController extends Controller
             }
         }
 
-        return redirect()->route('year.index')->with('message', 'You have been successfully created.');
+        return redirect()->route('year.index')->with('message', 'You have successfully created.');
     }
 
     /**
@@ -147,13 +147,14 @@ class YearController extends Controller
     public function update(UpdateYearRequest $request, Year $year)
     {
         $this->authorize('admin-only', Year::class);
+
         $year->update([
             'year' => $request->year,
             'semester' => $request->semester,
             'status' => $request->status
         ]);
 
-        return redirect()->route('year.index')->with('message', 'You have been successfully updated.');
+        return redirect()->route('year.index')->with('message', 'You have successfully updated.');
     }
 
     /**
@@ -163,6 +164,6 @@ class YearController extends Controller
     {
         // $this->authorize('admin-only', Year::class);
         // $year->delete();
-        // return redirect()->back()->with('message', 'You have been successfully deleted.');
+        // return redirect()->back()->with('message', 'You have successfully deleted.');
     }
 }

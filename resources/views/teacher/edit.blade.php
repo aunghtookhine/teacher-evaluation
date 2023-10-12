@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4>Update Teacher Info</h4>
-                <hr>
+                <h4 class="text-white">Update Teacher Info</h4>
+                <hr class="text-white">
 
                 <form action=" {{ route('teacher.update', $teacher->id) }} " method="post">
                     @method('put')
@@ -36,7 +36,7 @@
                             </option>
                         </select>
                     </div>
-                    <button class="btn btn-dark">Update</button>
+                    <button class="btn btn-color">Update</button>
                 </form>
             </div>
         </div>

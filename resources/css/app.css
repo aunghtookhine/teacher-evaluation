@@ -1,0 +1,90 @@
+.btn-color {
+    background-color: #69e6a6 !important;
+    border: 1px solid #69e6a6 !important;
+    color: #ffffff !important;
+}
+
+.btn-color:hover {
+    background-color: #ffffff !important;
+    color: #69e6a6 !important;
+}
+
+.btn-outline-color {
+    background-color: #ffffff !important;
+    color: #69e6a6 !important;
+    border: 1px solid #69e6a6 !important;
+}
+
+.btn-outline-color:hover {
+    background-color: #69e6a6 !important;
+    color: #ffffff !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #69e6a6 !important;
+    border-color: #69e6a6 !important;
+}
+
+.form-control:focus {
+    border-color: none !important;
+    box-shadow: none !important;
+}
+
+.form-select {
+    box-shadow: none !important;
+}
+
+.nav-color {
+    background-color: #1c3d5b;
+}
+
+.background-green {
+    background-color: #69e6a6;
+}
+
+th {
+    background-color: #69e6a6 !important;
+}
+
+.table-btn-outline-color {
+    background-color: #ffffff !important;
+    color: #69e6a6 !important;
+    border: 1px solid #69e6a6 !important;
+}
+
+.table-btn-outline-color:hover {
+    background-color: #69e6a6 !important;
+    color: #ffffff !important;
+}
+
+.example .text-muted,
+.example .text-muted span {
+    color: #ffffff !important;
+}
+
+hr,
+label,
+h4 {
+    color: white !important;
+}
+
+.card-header {
+    background-color: #1c3d5b !important;
+}
+
+.dropdown-menu > a {
+    background-color: #ffffff;
+}
+/* .dropdown-menu > a:hover {
+    background-color: gray;
+    color: #ffffff;
+} */
+.dropdown-menu > a:focus {
+    color: #ffffff !important;
+    background-color: #183655 !important;
+}

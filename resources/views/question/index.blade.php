@@ -1,26 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>Evaluation Questions</h3>
-    <hr>
+    <h3 class="text-white">Evaluation Questions</h3>
+    <hr class="text-white">
 
-    <div class="row d-flex justify-content-between my-3">
-        <div class="col-md-3">
-            <a href="{{ route('question.create') }}" class="btn btn-outline-dark">Create</a>
-        </div>
-        @if (session('message'))
-            <div class="toast show align-items-center text-white bg-black border-0" role="alert" aria-live="assertive"
-                aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body text-white">
-                        {{ session('message') }}
+    <div class="row my-3">
+        <div class="col-12 d-flex justify-content-end">
+            @if (session('message'))
+                <div class="toast show align-items-center text-black bg-white border-0" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body text-black">
+                            {{ session('message') }}
+                        </div>
+                        <button type="button" class=" btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close">
+                        </button>
                     </div>
-                    <button type="button" class=" btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                        aria-label="Close">
-                    </button>
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
     </div>
 
     <table class="table">
@@ -40,12 +39,12 @@
                     <td>{{ $question->name }}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="{{ route('question.edit', $question->id) }}" class="btn btn-sm btn-outline-dark">
+                            <a href="{{ route('question.edit', $question->id) }}" class="btn btn-sm btn-outline-color">
                                 <i class=" bi bi-pencil"></i>
                             </a>
-                            <button form="questionDeleForm{{ $question->id }}" class=" btn btn-sm btn-outline-dark">
+                            {{-- <button form="questionDeleForm{{ $question->id }}" class=" btn btn-sm btn-outline-color">
                                 <i class=" bi bi-trash"></i>
-                            </button>
+                            </button> --}}
                         </div>
                         <form id="questionDeleForm{{ $question->id }}" class="d-inline-block"
                             action="{{ route('question.destroy', $question->id) }}" method="post">
@@ -76,7 +75,7 @@
                 <tr>
                     <td colspan="8" class=" text-center p-3">
                         <p>There is no question.</p>
-                        <a class="btn btn-sm btn-dark" href="{{ route('question.create') }}">Create
+                        <a class="btn btn-sm btn-color" href="{{ route('question.create') }}">Create
                             question</a>
                     </td>
 

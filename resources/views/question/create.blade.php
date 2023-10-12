@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Create Evaluation Question</h3>
-                <hr>
+                <h3 class="text-white">Create Evaluation Question</h3>
+                <hr class="text-white">
                 <form action="{{ route('question.store') }}" method="post">
                     @csrf
                     <div class="mb-3">
@@ -16,7 +16,7 @@
                             <div class="text-danger invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button class="btn btn-dark">Save</button>
+                    <button class="btn btn-color">Save</button>
                 </form>
             </div>
         </div>

@@ -18,6 +18,83 @@ class StudentSeeder extends Seeder
     {
         $students = array(
             (object) [
+                "name" => 'Thike Htaw Aung',
+                "email" => 'tha@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-1',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Kaung Khant Kyaw',
+                "email" => 'kkk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-2',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Kaung Sett Min Thwin',
+                "email" => 'ksmt@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '1IT-3',
+                "grade_id" => 1
+            ],
+            (object) [
+                "name" => 'Mya Wuttyi Sett',
+                "email" => 'mws@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-1',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Moe Thandar Aye',
+                "email" => 'mta@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-2',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Aye Pyae Pyae Moe',
+                "email" => 'appm@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '2IT-3',
+                "grade_id" => 2
+            ],
+            (object) [
+                "name" => 'Ei Kay Khine',
+                "email" => 'ekk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '3IT-1',
+                "grade_id" => 3
+            ],
+            (object) [
+                "name" => 'Han Nwe Htutt',
+                "email" => 'hnh@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '3IT-2',
+                "grade_id" => 3
+            ],
+            (object) [
+                "name" => 'Ye Zarni Ko',
+                "email" => 'yzk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-1',
+                "grade_id" => 4
+            ],
+            (object) [
+                "name" => 'Moe Zaw',
+                "email" => 'mz@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-2',
+                "grade_id" => 4
+            ],
+            (object) [
+                "name" => 'Eaint Hmue Khin',
+                "email" => 'ehk@gmail.com',
+                "password" => 'asdffdsa',
+                "roll_number" => '4IT-3',
+                "grade_id" => 4
+            ],
+            (object) [
                 "name" => "Aung Htoo Khine",
                 "email" => 'ahk@gmail.com',
                 "password" => 'asdffdsa',
@@ -95,81 +172,67 @@ class StudentSeeder extends Seeder
                 "grade_id" => 5
             ],
             (object) [
-                "name" => 'Thike Htaw Aung',
-                "email" => 'tha@gmail.com',
+                "name" => "Sai Pyae Sone Thu",
+                "email" => 'spst@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '1IT-1',
-                "grade_id" => 1
+                "roll_number" => '5IT-13',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Kaung Khant Kyaw',
-                "email" => 'kkk@gmail.com',
+                "name" => 'Hein Htet Soe',
+                "email" => 'hhs@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '1IT-2',
-                "grade_id" => 1
+                "roll_number" => '5IT-14',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Kaung Sett Min Thwin',
-                "email" => 'ksmt@gmail.com',
+                "name" => 'Phyu Sin Kyail',
+                "email" => 'psk@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '1IT-3',
-                "grade_id" => 1
+                "roll_number" => '5IT-15',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Mya Wuttyi Sett',
-                "email" => 'mws@gmail.com',
+                "name" => 'Thant Zin Phyo',
+                "email" => 'tzp@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '2IT-1',
-                "grade_id" => 2
+                "roll_number" => '5IT-16',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Moe Thandar Aye',
-                "email" => 'mta@gmail.com',
+                "name" => 'Myat Min Han',
+                "email" => 'mmh@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '2IT-2',
-                "grade_id" => 2
+                "roll_number" => '5IT-17',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Aye Pyae Pyae Moe',
-                "email" => 'appm@gmail.com',
+                "name" => 'Kyaw Phyo Win',
+                "email" => 'kpw@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '2IT-3',
-                "grade_id" => 2
+                "roll_number" => '5IT-18',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Ei Kay Khine',
-                "email" => 'ekk@gmail.com',
+                "name" => 'Min Thu Ra',
+                "email" => 'mtr@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '3IT-1',
-                "grade_id" => 3
+                "roll_number" => '5IT-19',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Han Nwe Htutt',
-                "email" => 'hnh@gmail.com',
+                "name" => 'Thet Toe Wai',
+                "email" => 'ttw@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '3IT-2',
-                "grade_id" => 3
+                "roll_number" => '5IT-20',
+                "grade_id" => 5
             ],
             (object) [
-                "name" => 'Ye Zarni Ko',
-                "email" => 'yzk@gmail.com',
+                "name" => 'Kyaw Lynn Lynn',
+                "email" => 'kll@gmail.com',
                 "password" => 'asdffdsa',
-                "roll_number" => '4IT-1',
-                "grade_id" => 4
-            ],
-            (object) [
-                "name" => 'Moe Zaw',
-                "email" => 'mz@gmail.com',
-                "password" => 'asdffdsa',
-                "roll_number" => '4IT-2',
-                "grade_id" => 4
-            ],
-            (object) [
-                "name" => 'Eaint Hmue Khin',
-                "email" => 'ehk@gmail.com',
-                "password" => 'asdffdsa',
-                "roll_number" => '4IT-3',
-                "grade_id" => 4
+                "roll_number" => '5IT-24',
+                "grade_id" => 5
             ],
         );
 

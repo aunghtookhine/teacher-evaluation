@@ -2,21 +2,33 @@
 
 @section('information')
     <div class="card">
-        <div class="card-header">
-            Information
+        <div class="card-header text-white">
+            Information of teacher
         </div>
         <div class="card-body">
-            <h5 class="card-title">Teacher Name: {{ $evaluation->subject->teacher->name }}</h5>
-            <h5 class="card-title">Subject Code: {{ $evaluation->subject->code }}</h5>
-            <h5 class="card-title">Subject Name: {{ $evaluation->subject->name }}</h5>
+            <table class="w-100">
+                <tr>
+                    <td>Teacher Name:</td>
+                    <td class="text-end">{{ $evaluation->subject->teacher->name }}</td>
+                </tr>
+                <tr>
+                    <td>Subject Code:</td>
+                    <td class="text-end">{{ $evaluation->subject->code }}</td>
+                </tr>
+                <tr>
+                    <td>Subject Name:</td>
+                    <td class="text-end">{{ $evaluation->subject->name }}</td>
+                </tr>
+            </table>
         </div>
     </div>
 @endsection
 
 @section('content')
     <div class="container">
-        <h3>Evaluation Questionnaire for Academic</h3>
-        <form action="{{ route('evaluation.update', $evaluation->id) }}" method="post">
+        <h3 class="text-white">Evaluation Questionnaire for Academic</h3>
+        <hr class="text-white">
+        <form action="{{ route('evaluation.update', $evaluation->id) }}" method="post" class="mt-3">
             @method('put')
             @csrf
             <table class="table table-striped">
@@ -53,7 +65,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-dark">Submit</button>
+                <button class="btn btn-color">Submit</button>
             </div>
         </form>
     </div>

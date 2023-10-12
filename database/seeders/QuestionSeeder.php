@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use App\Models\Question;
@@ -19,10 +20,11 @@ class QuestionSeeder extends Seeder
             'Communicates clearly in class',
             'Be approachable to discuss',
             'Provides useful guidelines',
-            'Provides useful guidelines',
             'Be effective teacher',
             'Connect with students',
-            'Can answer questions'];
+            'Can answer questions',
+            'Provides appropriate motivation'
+        ];
 
         foreach ($questions as $question) {
             Question::factory()->create([

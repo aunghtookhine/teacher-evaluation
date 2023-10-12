@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateYearRequest extends FormRequest
 {
@@ -22,9 +23,14 @@ class UpdateYearRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'year' => 'required|min:9',
-            'semester' => 'required',
-            'status' => 'required'
+            'year' => 'required|min:9|unique:years,year,null,null,semester,' . $this->input('semester') . ',status,' . $this->input('status')
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'year.unique' => 'The academic year you want to update is existed.',
         ];
     }
 }

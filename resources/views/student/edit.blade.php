@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Update Student Information</h3>
-                <hr>
+                <h3 class="text-white">Update Student Information</h3>
+                <hr class="text-white">
 
                 <form action=" {{ route('student.update', $student->id) }} " method="post">
                     @method('put')
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-dark">Update</button>
+                    <button class="btn btn-color">Update</button>
                 </form>
             </div>
         </div>

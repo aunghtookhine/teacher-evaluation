@@ -6,19 +6,17 @@
             <div class="col-12">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h4>Evaluate Teachers</h4>
-                        <h5>Academic Year: {{ $currentYear->year }}</h5>
-                        <h5>Semester: {{ $currentYear->semester + 1 }}</h5>
+                        <h4 class="text-white">Evaluate Teachers</h4>
                     </div>
                     <div>
                         @if (session('message'))
-                            <div class="toast show align-items-center text-white bg-black border-0" role="alert"
+                            <div class="toast show align-items-center text-black bg-white border-0" role="alert"
                                 aria-live="assertive" aria-atomic="true">
                                 <div class="d-flex">
-                                    <div class="toast-body text-white">
+                                    <div class="toast-body text-black">
                                         {{ session('message') }}
                                     </div>
-                                    <button type="button" class=" btn-close btn-close-white me-2 m-auto"
+                                    <button type="button" class=" btn-close btn-close-black me-2 m-auto"
                                         data-bs-dismiss="toast" aria-label="Close">
                                     </button>
                                 </div>
@@ -26,8 +24,9 @@
                         @endif
                     </div>
                 </div>
+                <hr class="text-white">
 
-                <table class="table table-hover evaluationTable">
+                <table class="table table-hover evaluationTable mt-2">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -37,18 +36,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($evaluations as $evaluation)
+                        @forelse ($evaluations as $evaluation)
                             <tr class="evaluationRow-{{ $evaluation->id }}">
                                 <td>{{ $evaluation->id }}</td>
                                 <td>{{ $evaluation->subject->code }}</td>
                                 <td>{{ $evaluation->subject->name }}</td>
                                 <td><a href="{{ route('evaluation.evaluate', $evaluation->id) }}"
-                                        class="btn btn-sm btn-outline-dark">
+                                        class="btn btn-sm table-btn-outline-color">
                                         <i class=" bi bi-clipboard2-check"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="8" class=" text-center p-3">
+                                    <p>You have no teachers to evaluate.</p>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
 
@@ -90,7 +95,7 @@
                         </tr>
                     @endforeach
                 </table>
-                <button class="btn btn-dark float-end submitBtn">Submit</button>
+                <button class="btn btn-color float-end submitBtn">Submit</button>
             </form>
         </div>
     </div>

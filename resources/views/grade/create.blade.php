@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4>Create New Class</h4>
-    <hr>
+    <h4 class="text-white">Create New Class</h4>
+    <hr class="text-white">
     <form action=" {{ route('grade.store') }} " method="post">
-
         @csrf
 
         <div class="mb-3">
@@ -15,6 +14,6 @@
                 <div class="text-danger invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <button class="btn btn-dark">Save</button>
+        <button class="btn btn-color">Save</button>
     </form>
 @endsection

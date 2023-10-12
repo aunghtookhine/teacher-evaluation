@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4>Create New Teacher</h4>
-                <hr>
+                <h4 class="text-white">Create New Teacher</h4>
+                <hr class="text-white">
 
                 <form action=" {{ route('teacher.store') }} " method="post">
                     @csrf
@@ -54,7 +54,7 @@
                             <option value="lecturer">Lecturer</option>
                         </select>
                     </div>
-                    <button class="btn btn-dark">Create</button>
+                    <button class="btn btn-color">Create</button>
                 </form>
             </div>
         </div>

@@ -14,4 +14,9 @@ class Subject extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function grade()
+    {
+        return $this->belongsTo(Grade::class);
+    }
 }

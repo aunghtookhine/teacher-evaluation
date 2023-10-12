@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
+use App\Models\Year;
 
 class QuestionController extends Controller
 {
@@ -29,8 +30,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin-only', Question::class);
-        return view('question.create');
+        // $this->authorize('admin-only', Question::class);
+        // return view('question.create');
     }
 
     /**
@@ -38,12 +39,12 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        $this->authorize('admin-only', Question::class);
-        Question::create([
-            'name' => $request->name
-        ]);
+        // $this->authorize('admin-only', Question::class);
+        // Question::create([
+        //     'name' => $request->name
+        // ]);
 
-        return redirect()->route('question.index')->with('message', 'You have been successfully created.');
+        // return redirect()->route('question.index')->with('message', 'You have successfully created.');
     }
 
     /**
@@ -72,7 +73,7 @@ class QuestionController extends Controller
         $question->update([
             'name' => $request->name
         ]);
-        return redirect()->route('question.index')->with('message', 'You have been successfully updated.');
+        return redirect()->route('question.index')->with('message', 'You have successfully updated.');
     }
 
     /**
@@ -80,8 +81,8 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        $this->authorize('admin-only', Question::class);
-        $question->delete();
-        return redirect()->route('question.index')->with('message', 'You have been successfully deleted.');
+        // $this->authorize('admin-only', Question::class);
+        // $question->delete();
+        // return redirect()->route('question.index')->with('message', 'You have successfully deleted.');
     }
 }

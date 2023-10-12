@@ -8,6 +8,8 @@ use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\StudentSubject;
 use App\Models\Subject;
+use App\Models\Year;
+use App\Models\YearStudentSubject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -44,6 +46,7 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request)
     {
         $this->authorize('admin-only', Student::class);
+
         Student::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -59,7 +62,23 @@ class StudentController extends Controller
             'role' => $request->role
         ]);
 
-        return redirect()->route('student.index')->with('message', 'You have been successfully created.');
+        $studentId = Student::where('email', $request->email)->first()->id;
+        $isExisted = YearStudentSubject::where('student_id', 26)->first();
+        $subjects = Subject::where('grade_id', $request->grade_id)->get();
+        $years = Year::all();
+        if (!$isExisted) {
+            foreach ($years as $year) {
+                foreach ($subjects as $subject) {
+                    YearStudentSubject::create([
+                        'year_id' => $year->id,
+                        'student_id' => $studentId,
+                        'subject_id' => $subject->id
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->route('student.index')->with('message', 'You have successfully created.');
     }
 
     /**
@@ -97,7 +116,7 @@ class StudentController extends Controller
             'grade_id' => $request->grade_id
         ]);
 
-        return redirect()->route('student.index')->with('message', 'You have been successfully updated.');
+        return redirect()->route('student.index')->with('message', 'You have successfully updated.');
     }
 
     /**
@@ -111,6 +130,6 @@ class StudentController extends Controller
             'roll_number' => null,
             'isArchived' => true
         ]);
-        return redirect()->back()->with('message', 'You have been successfully deleted.');
+        return redirect()->back()->with('message', 'You have successfully deleted.');
     }
 }

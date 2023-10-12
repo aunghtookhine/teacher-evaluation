@@ -1,19 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+    <h4 class="text-white">Class List</h4>
+    <hr class="text-white">
     <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <h4>Class List</h4>
+        <div class="row my-3">
+            <div class="col-md-3">
+                <a href="{{ route('grade.create') }}" class="btn btn-color">Create</a>
+            </div>
         </div>
         <div>
             @if (session('message'))
-                <div class="toast show align-items-center text-white bg-black border-0" role="alert" aria-live="assertive"
+                <div class="toast show align-items-center text-black bg-white border-0" role="alert" aria-live="assertive"
                     aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body text-white">
+                        <div class="toast-body text-black">
                             {{ session('message') }}
                         </div>
-                        <button type="button" class=" btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        <button type="button" class=" btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast"
                             aria-label="Close">
                         </button>
                     </div>
@@ -22,12 +26,6 @@
         </div>
     </div>
 
-
-    <div class="row my-3">
-        <div class="col-md-3">
-            <a href="{{ route('grade.create') }}" class="btn btn-outline-dark">Create</a>
-        </div>
-    </div>
     <table class="table">
         <thead>
             <tr>
@@ -45,7 +43,7 @@
                     <td>{{ $grade->name }}</td>
                     <td>
                         <div class="btn-group">
-                            <button form="gradeDeleForm{{ $grade->id }}" class=" btn btn-sm btn-outline-dark">
+                            <button form="gradeDeleForm{{ $grade->id }}" class=" btn btn-sm btn-outline-color">
                                 <i class=" bi bi-trash"></i>
                             </button>
                         </div>
@@ -78,7 +76,7 @@
                 <tr>
                     <td colspan="5" class=" text-center p-3">
                         <p>There is no class.</p>
-                        <a class="btn btn-sm btn-dark" href="{{ route('grade.create') }}">Create
+                        <a class="btn btn-sm btn-color" href="{{ route('grade.create') }}">Create
                             grade</a>
                     </td>
 

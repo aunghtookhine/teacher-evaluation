@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h4>Update Subject</h4>
-                <hr>
+                <h4 class="text-white">Update Subject</h4>
+                <hr class="text-white">
 
                 <form action=" {{ route('subject.update', $subject->id) }} " method="post">
                     @csrf
@@ -42,7 +42,7 @@
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-dark">Save</button>
+                    <button class="btn btn-color">Save</button>
                 </form>
             </div>
         </div>
