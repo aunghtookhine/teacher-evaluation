@@ -69,7 +69,7 @@ class StudentController extends Controller
         $studentId = Student::where('email', $request->email)->first()->id;
         $isExisted = YearStudentSubject::where('student_id', $studentId)->first();
         $subjects = Subject::where('grade_id', $request->grade_id)->get();
-        $years = Year::where('status', "!=", "Started")->get();
+        $years = Year::where('status', "Pending")->get();
 
         if (!$isExisted) {
             foreach ($years as $year) {

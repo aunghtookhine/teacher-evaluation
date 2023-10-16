@@ -54,7 +54,7 @@
                         <div class="card-body d-flex align-items-center">
                             <p class="card-text w-100">
                                 <span class="badge bg-danger me-1"> </span>
-                                1 < Ineffective < 2 <br>
+                                1 <= Ineffective < 2 <br>
                                     <span class="badge bg-warning me-1"> </span>
                                     2 <= Partially Effective < 3 <br>
                                         <span class="badge bg-info me-1"> </span>
@@ -112,7 +112,7 @@
                                     <div class="card-body d-flex align-items-center">
                                         <p class="card-text w-100">
                                             <span class="badge bg-danger me-1"> </span>
-                                            1 < Ineffective < 2 <br>
+                                            1 <= Ineffective < 2 <br>
                                                 <span class="badge bg-warning me-1"> </span>
                                                 2 <= Partially Effective < 3 <br>
                                                     <span class="badge bg-info me-1"> </span>
